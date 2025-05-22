@@ -1,59 +1,157 @@
-# PHP Exercise 🚀
+# PHP Authentication System - ITS Steve Jobs Academy
 
-Questo progetto è un esempio di applicazione PHP che utilizza diverse librerie e strumenti per la gestione delle variabili d'ambiente, autenticazione JWT e altro ancora.
+This repository contains a PHP authentication system developed during the course at ITS Steve Jobs Academy. The system implements secure authentication functionality using JWT (JSON Web Tokens) and bcrypt encryption for password management.
 
-## Struttura del Progetto 📂
+## Repository Structure
 
-- **src/**: Contiene il codice sorgente dell'applicazione.
-    - **auth/**: Moduli di autenticazione.
-    - **database/**: Provider di connessione al database.
-    - **utilis/**: Utilità varie.
-- **vendor/**: Contiene le dipendenze del progetto gestite da Composer.
-- **.env**: File per le variabili d'ambiente.
-- **composer.json**: File di configurazione di Composer.
-- **README.md**: Questo file!
+The repository is organized into thematic folders:
 
-## Dipendenze 📦
+- **src/auth/**: Authentication components
+  - **auth.router.php**: Router to handle authentication requests
+  - **config/**: JWT configurations
+  - **controllers/**: Controllers for request handling
+  - **providers/**: Services for authentication, JWT, and encryption
+  - **repositories/**: Database access for authentication operations
 
-Il progetto utilizza le seguenti librerie:
+- **src/database/**: Database connection management
+  - **providers/**: Providers for connection and transactions
 
-- **vlucas/phpdotenv**: Per la gestione delle variabili d'ambiente.
-- **firebase/php-jwt**: Per la gestione dei JSON Web Token.
-- **symfony/polyfill-php80**: Per la compatibilità con PHP 8.0.
-- **phpoption/phpoption**: Per la gestione delle opzioni in PHP.
-- **graham-campbell/result-type**: Implementazione del tipo Result.
+- **src/utilis/**: Utility functions
+  - **regex.utilis.php**: Email and password validation
 
-## Installazione 🛠️
+- **vendor/**: External dependencies
+  - Firebase JWT
+  - PHPDotEnv
+  - Other support packages
 
-1. Clona il repository:
-     ```bash
-     git clone https://github.com/tuo-username/steve-jobs-accademy-php.git
-     ```
-2. Installa le dipendenze:
-     ```bash
-     composer install
-     ```
-3. Crea un file `.env` nella root del progetto e configura le tue variabili d'ambiente:
-     ```env
-     DB_HOST=localhost
-     DB_USER=root
-     DB_PASSWORD=secret
-     DB_NAME=steve_jobs_academy
-     ```
+## Main Features
 
-## Utilizzo 🚀
+### User Authentication
 
-Per avviare l'applicazione, esegui il server PHP integrato:
+- Registration with email and password validation
+- Login with JWT token generation
+- Password protection with bcrypt
+
+### JWT Token Management
+
+- Secure token generation
+- Token validation
+- Customizable configuration
+
+### Security
+
+- Input validation
+- Protection against SQL injection
+- Secure password management
+- Soft delete for user records
+
+## How to Use the System
+
+### Prerequisites
+
+- PHP 7.4 or higher
+- Composer
+- MySQL Database
+
+### Configuration
+
+1. Clone the repository
+2. Install dependencies:
+
 ```bash
-php -S localhost:8000 -t public
+composer install
 ```
 
-## Contribuire 🤝
+3. Create a `.env` file in the project root with the following variables:
 
-Se desideri contribuire al progetto, sentiti libero di fare una fork del repository e inviare una pull request. Ogni contributo è benvenuto!
+```
+DB_HOST=localhost
+DB_USER=username
+DB_PASSWORD=password
+DB_NAME=database_name
+SECRET=your_jwt_secret
+ISSUER=your_issuer
+AUDIENCE=your_audience
+EXP=3600
+HEAD=your_header
+LENGTH=16
+SALT=10
+```
 
-## Licenza 📄
+### API Endpoints
 
-Questo progetto è distribuito sotto la licenza MIT. Vedi il file [LICENSE](LICENSE) per maggiori dettagli.
+#### Registration
+```
+POST /auth.router.php?action=register
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "Password1!"
+}
+```
+
+#### Login
+```
+POST /auth.router.php?action=login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "Password1!"
+}
+```
+
+## Main Components
+
+### AuthService
+Manages the business logic for authentication:
+
+- User registration
+- Login
+- User data updates
+- User deletion
+
+### JwtService
+Manages JWT token creation and validation:
+
+- Token generation with custom payload
+- Token validation
+- Token expiration management
+
+### BcryptProvider
+Manages password encryption:
+
+- Secure hash generation
+- Password verification
+- Random salt generation
+
+### ConnectionProvider
+Manages database connection:
+
+- Singleton connection
+- Connection error handling
+- Connection closing
+
+## Password Security Requirements
+
+Passwords must contain:
+
+- At least 6 characters
+- At least one letter
+- At least one number
+- At least one special character
+
+## Educational Objectives
+
+This system was designed to:
+
+- Understand fundamental web authentication concepts
+- Implement security best practices
+- Apply design patterns in PHP
+- Develop RESTful APIs
+- Use external libraries through Composer
 
 ---
+
+*This repository was created as part of the educational journey at ITS Steve Jobs Academy.*

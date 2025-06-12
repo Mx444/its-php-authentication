@@ -1,157 +1,32 @@
-# PHP Authentication System - ITS Steve Jobs Academy
+<p align="center">
+  <img src="https://i.imgur.com/oxaVJiK.png" alt="ITS Steve Jobs Academy Logo" width="180">
+</p>
 
-This repository contains a PHP authentication system developed during the course at ITS Steve Jobs Academy. The system implements secure authentication functionality using JWT (JSON Web Tokens) and bcrypt encryption for password management.
+# ITS Steve Jobs Academy – Exercise Repository
 
-## Repository Structure
+This repository contains exercises, examples, or projects developed in the context of [ITS Steve Jobs Academy](https://www.stevejobs.academy/).
 
-The repository is organized into thematic folders:
+## About
 
-- **src/auth/**: Authentication components
-  - **auth.router.php**: Router to handle authentication requests
-  - **config/**: JWT configurations
-  - **controllers/**: Controllers for request handling
-  - **providers/**: Services for authentication, JWT, and encryption
-  - **repositories/**: Database access for authentication operations
+- The contents of this repository include practical tasks, code samples, or experiments on various topics.
+- Each repository may cover different technologies or subjects.
 
-- **src/database/**: Database connection management
-  - **providers/**: Providers for connection and transactions
+## How to Use
 
-- **src/utilis/**: Utility functions
-  - **regex.utilis.php**: Email and password validation
+1. **Clone the repository**:
+    ```bash
+    git clone <repository-link>
+    ```
+2. **Open the files** with your preferred editor or required software.
+3. **Follow any instructions** or comments provided in the files.
 
-- **vendor/**: External dependencies
-  - Firebase JWT
-  - PHPDotEnv
-  - Other support packages
+## Requirements
 
-## Main Features
-
-### User Authentication
-
-- Registration with email and password validation
-- Login with JWT token generation
-- Password protection with bcrypt
-
-### JWT Token Management
-
-- Secure token generation
-- Token validation
-- Customizable configuration
-
-### Security
-
-- Input validation
-- Protection against SQL injection
-- Secure password management
-- Soft delete for user records
-
-## How to Use the System
-
-### Prerequisites
-
-- PHP 7.4 or higher
-- Composer
-- MySQL Database
-
-### Configuration
-
-1. Clone the repository
-2. Install dependencies:
-
-```bash
-composer install
-```
-
-3. Create a `.env` file in the project root with the following variables:
-
-```
-DB_HOST=localhost
-DB_USER=username
-DB_PASSWORD=password
-DB_NAME=database_name
-SECRET=your_jwt_secret
-ISSUER=your_issuer
-AUDIENCE=your_audience
-EXP=3600
-HEAD=your_header
-LENGTH=16
-SALT=10
-```
-
-### API Endpoints
-
-#### Registration
-```
-POST /auth.router.php?action=register
-Content-Type: application/json
-
-{
-  "email": "user@example.com",
-  "password": "Password1!"
-}
-```
-
-#### Login
-```
-POST /auth.router.php?action=login
-Content-Type: application/json
-
-{
-  "email": "user@example.com",
-  "password": "Password1!"
-}
-```
-
-## Main Components
-
-### AuthService
-Manages the business logic for authentication:
-
-- User registration
-- Login
-- User data updates
-- User deletion
-
-### JwtService
-Manages JWT token creation and validation:
-
-- Token generation with custom payload
-- Token validation
-- Token expiration management
-
-### BcryptProvider
-Manages password encryption:
-
-- Secure hash generation
-- Password verification
-- Random salt generation
-
-### ConnectionProvider
-Manages database connection:
-
-- Singleton connection
-- Connection error handling
-- Connection closing
-
-## Password Security Requirements
-
-Passwords must contain:
-
-- At least 6 characters
-- At least one letter
-- At least one number
-- At least one special character
-
-## Educational Objectives
-
-This system was designed to:
-
-- Understand fundamental web authentication concepts
-- Implement security best practices
-- Apply design patterns in PHP
-- Develop RESTful APIs
-- Use external libraries through Composer
+- A computer with the necessary software/tools for the specific materials in this repository.
+- (Optional) Refer to the documentation or code comments for any additional setup.
 
 ---
 
-*This repository was created as part of the educational journey at ITS Steve Jobs Academy.*
+<p align="center">
+  <b>ITS Steve Jobs Academy – Exercises and Projects</b>
+</p>
